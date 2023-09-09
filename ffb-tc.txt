@@ -1,0 +1,12 @@
+
+Composable Batch Files (CBF) - Table of Contents
+
+ .--.      .--.      .--.      .--.      .--.
+::::.\::::::::.\::::::::.\::::::::.\::::::::.\:::::
+      `--'      `--'      `--'      `--'      `--' 
+
+    File  Description
+
+     fct  Function demo.
+       t  Traversy notes.
+      te  For testing purposes.
