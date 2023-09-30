@@ -8,6 +8,7 @@ Composable Batch Files (CBF) - Table of Contents
     File  Description
 
      fct  Function demo.
+      hw  Hello world.
        k  For testing purposes.
       te  Bash script template.
     trav  Traversy notes.
