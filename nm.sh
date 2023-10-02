@@ -31,7 +31,7 @@ npm --version
 
 #;
 
-function rjs () {
+function json () {
 echo ''
 echo "* Run JSON server."
 echo ''
