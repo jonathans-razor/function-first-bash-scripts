@@ -8,8 +8,10 @@ Composable Batch Files (CBF) - Table of Contents
     File  Description
 
      ang  Angular.
+      cd  Same as pwd.
      fct  Function demo.
       hw  Hello world.
+qq
        k  For testing purposes.
       nm  Node.
       te  Bash script template.
