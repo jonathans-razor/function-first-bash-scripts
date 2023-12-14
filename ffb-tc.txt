@@ -14,5 +14,6 @@ Composable Batch Files (CBF) - Table of Contents
 qq
        k  For testing purposes.
       nm  Node.
+      pt  echo $PATH.
       te  Bash script template.
     trav  Traversy notes.
