@@ -5,9 +5,8 @@ sleep_sort() {
     shift
   done
   wait
-  echo hi
 }
 
 
 
-sleep_sort
+sleep_sort 3 6 2 4

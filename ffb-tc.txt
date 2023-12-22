@@ -5,14 +5,15 @@ Composable Batch Files (CBF) - Table of Contents
 ::::.\::::::::.\::::::::.\::::::::.\::::::::.\:::::
       `--'      `--'      `--'      `--'      `--' 
 
-    File  Description
+      File  Description
 
-     ang  Angular.
-      cd  Same as pwd.
-     fct  Function demo.
-      hw  Hello world.
-       k  For testing purposes.
-      nm  Node.
-      pt  echo $PATH.
-      te  Bash script template.
-    trav  Traversy notes.
+       ang  Angular.
+       fct  Function demo.
+        hw  Hello world.
+         k  For testing purposes.
+        nm  Node.
+        pt  echo $PATH.
+       pwd  Present working directory.
+sleep-sort  Fireship sorting algorithm.
+        te  Bash script template.
+      trav  Traversy notes.
