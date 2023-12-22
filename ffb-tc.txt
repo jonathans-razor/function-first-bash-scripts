@@ -14,6 +14,6 @@ Composable Batch Files (CBF) - Table of Contents
         nm  Node.
         pt  echo $PATH.
        pwd  Present working directory.
-sleep-sort  Fireship sorting algorithm.
+sleep-sort  Fireship weird sorting algorithm.
         te  Bash script template.
       trav  Traversy notes.
