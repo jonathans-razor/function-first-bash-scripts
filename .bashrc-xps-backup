@@ -1,7 +1,34 @@
+
 export PATH=/d/Dropbox/IT/function-first-bash-scripts:$PATH
-alias ang="/d/Dropbox/IT/composable-batch-files/ang.bat"
+
+# Aliases
+alias ang="/d/Dropbox/IT/function-first-bash-scripts/ang.sh"
 alias d="/d/Dropbox/IT/composable-batch-files/d.bat"
-alias e="/d/Dropbox/IT/composable-batch-files/e.bat"
+alias e="'C:\Users\jonat\AppData\Local\Programs\Microsoft VS Code\Code.exe'"
 alias fe="/d/Dropbox/IT/composable-batch-files/fe.bat"
 alias m="/d/Dropbox/IT/composable-batch-files/m.bat"
-alias nm="/d/Dropbox/IT/composable-batch-files/nm.bat"
+alias nm="/d/Dropbox/IT/function-first-bash-scripts/nm.sh"
+alias pt="/d/Dropbox/IT/function-first-bash-scripts/pt.sh"
+# Reload bashrc.
+alias rl=". ~/.bashrc"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# Aliases: transform directory
+alias t="cd /c/a;clear"
+alias ta="cd /c/a"
+alias taa="cd /c/aa"
+alias tc="cd /c"
+alias tcbf="cd /d/dropbox/it/composable-batch-files"
+alias tf="cd /d/dropbox/it/function-first-bash-scripts"
+alias tgopr="cd ~/goproj/src"
+alias treid="cd ~/goproj/src/retrieve-identity"
+alias th="cd $HOME"
+
+# Functions
+function a() {
+cd ..
+}
+
+cd /c/a;clear
