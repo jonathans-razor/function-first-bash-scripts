@@ -2,10 +2,10 @@
 export PATH=/d/Dropbox/IT/function-first-bash-scripts:$PATH
 
 # Aliases
-alias ang="/d/Dropbox/IT/function-first-bash-scripts/ang.sh"
 alias d="/d/Dropbox/IT/composable-batch-files/d.bat"
 alias e="'C:\Users\jonat\AppData\Local\Programs\Microsoft VS Code\Code.exe'"
 alias fe="/d/Dropbox/IT/composable-batch-files/fe.bat"
+alias hw="/d/Dropbox/IT/function-first-bash-scripts/hw.sh"
 alias m="/d/Dropbox/IT/composable-batch-files/m.bat"
 alias nm="/d/Dropbox/IT/function-first-bash-scripts/nm.sh"
 alias pt="/d/Dropbox/IT/function-first-bash-scripts/pt.sh"
@@ -23,7 +23,6 @@ alias tc="cd /c"
 alias tcbf="cd /d/dropbox/it/composable-batch-files"
 alias tf="cd /d/dropbox/it/function-first-bash-scripts"
 alias tgopr="cd ~/goproj/src"
-alias treid="cd ~/goproj/src/retrieve-identity"
 alias th="cd $HOME"
 
 # Functions
