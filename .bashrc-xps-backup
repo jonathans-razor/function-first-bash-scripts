@@ -1,33 +1,109 @@
 
-export PATH=/d/Dropbox/IT/function-first-bash-scripts:$PATH
+#export PATH=/d/Dropbox/IT/function-first-bash-scripts:$PATH
 
-# Aliases
-alias d="/d/Dropbox/IT/composable-batch-files/d.bat"
-alias e="'C:\Users\jonat\AppData\Local\Programs\Microsoft VS Code\Code.exe'"
+
+
+# Aliases - Miscellany
+alias b="code ~/.bashrc"
+alias c="clear"
+alias cnh="git clone "
+alias d="ls -aFl"
+alias d-old="/d/Dropbox/IT/composable-batch-files/d.bat"
+alias drd="sudo rm -rf "
+alias e="code "
+alias e-old="'C:\Users\jonat\AppData\Local\Programs\Microsoft VS Code\Code.exe'"
 alias fe="/d/Dropbox/IT/composable-batch-files/fe.bat"
 alias hw="/d/Dropbox/IT/function-first-bash-scripts/hw.sh"
 alias m="/d/Dropbox/IT/composable-batch-files/m.bat"
 alias nm="/d/Dropbox/IT/function-first-bash-scripts/nm.sh"
 alias pt="/d/Dropbox/IT/function-first-bash-scripts/pt.sh"
-# Reload bashrc.
-alias rl=". ~/.bashrc"
+alias r="echo - Reload bashrc.;. ~/.bashrc"
+# Example of how to assign more than 1 alias to a single command.
+alias {vc,vcex}="code ."
 
-# Load Angular CLI autocompletion.
-source <(ng completion script)
 
-# Aliases: transform directory
+
+# Aliases: Transform Directory
+alias a="cd .."
+alias h="cd ~;clear"
 alias t="cd /c/a;clear"
 alias ta="cd /c/a"
 alias taa="cd /c/aa"
 alias tc="cd /c"
 alias tcbf="cd /d/dropbox/it/composable-batch-files"
+alias td="cd /d/Dropbox/IT/dsa"
 alias tf="cd /d/dropbox/it/function-first-bash-scripts"
 alias tgopr="cd ~/goproj/src"
-alias th="cd $HOME"
+alias h="cd $HOME"
+
+
 
 # Functions
-function a() {
-cd ..
+function cs() {
+  - echo Find files that contain the string {"$1"}.
+  grep -R "$1" .
+}
+function csv() {
+  - echo Find Vue files that contain the string {"$1"}.
+  grep -r --inclue=*.vue "$1" .
+}
+function cbf() {
+  echo -e '\n- Cbf.\n'
+  cd /d/dropbox/it/composable-batch-files
+}
+function fs() {
+  - echo Find files with {"$1"} in the name.
+  find -iname "*$1*"  
+}
+function gacpm() {
+  - echo Add, commit and push all changes with message.
+  git add -all
+  git commit -a -m "$1"
+  git push
+  
+}
+function gcb() {
+  - echo Create branch based on current branch.
+  git checkout -b "$1"
+  git push --set-upstream origin "$1"
+}
+function gdebr() {
+  - echo Delete branch.
+  git checkout develop
+  git branch -D "$1"
+  git push origin --delete "$1"
+}
+function gmerg() {
+  - echo -e '\n- Git merge and favor specified branch into current branch.
+  if [ "$1" == "" ]; then
+    echo -e '- *** Error ***: Branch name is required.\n'
+    return
+  fi
+  git merge $1
+  echo
+}
+function gsb() {
+  - echo Switch branch.
+  git checkout "$1"
+}
+function hw3() {
+  echo -e '\n- Hellow world.\n'
+
+}
+function s() {
+  echo -e '\n- Git status.'
+  if [ "$1" != "" ]; then
+    $1
+  fi
+  git remote update
+  git status
+  echo ''  
+}
+function x() {
+  echo '\n- .\n'
+
 }
 
-cd /c/a;clear
+PS1="\w  "
+
+
