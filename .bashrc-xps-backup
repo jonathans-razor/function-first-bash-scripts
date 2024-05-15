@@ -99,8 +99,16 @@ function s() {
   git status
   echo ''  
 }
-function x() {
-  echo '\n- .\n'
+function fix() {
+echo '\n- Fix NPM installation in the current folder. 4:51 \n'
+sudo rm -rf node_modules
+rm package-lock.json
+git pull
+npm install
+echo
+}
+function qq() {
+echo '\n- .\n'
 
 }
 
