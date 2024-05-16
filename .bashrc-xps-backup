@@ -74,7 +74,7 @@ function gdebr() {
   git push origin --delete "$1"
 }
 function gmerg() {
-  - echo -e '\n- Git merge and favor specified branch into current branch.
+  - echo -e '\n- Git merge and favor specified branch into current branch.'
   if [ "$1" == "" ]; then
     echo -e '- *** Error ***: Branch name is required.\n'
     return
@@ -87,20 +87,23 @@ function gsb() {
   git checkout "$1"
 }
 function hw3() {
-  echo -e '\n- Hellow world.\n'
-
+echo -e '\n- Hellow world.\n'
+}
+function vers() {
+echo -e '\n- Jonathans BRC Version: May-16-2024-3-07-PM\n'
 }
 function s() {
-  echo -e '\n- Git status.'
-  if [ "$1" != "" ]; then
-    $1
-  fi
-  git remote update
-  git status
-  echo ''  
+echo -e '\n- Git status.'
+if [ "$1" != "" ]; then
+  $1
+fi
+git remote update
+git status
+vers
+echo
 }
 function fix() {
-echo '\n- Fix NPM installation in the current folder. 4:51 \n'
+echo '\n- Fix NPM installation in the current folder.\n'
 sudo rm -rf node_modules
 rm package-lock.json
 git pull
