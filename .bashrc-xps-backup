@@ -17,7 +17,7 @@ alias hw="/d/Dropbox/IT/function-first-bash-scripts/hw.sh"
 alias m="/d/Dropbox/IT/composable-batch-files/m.bat"
 alias nm="/d/Dropbox/IT/function-first-bash-scripts/nm.sh"
 alias pt="/d/Dropbox/IT/function-first-bash-scripts/pt.sh"
-alias r="echo - Reload bashrc.;. ~/.bashrc"
+alias r="echo;echo - Reload bashrc.;. ~/.bashrc;echo"
 # Example of how to assign more than 1 alias to a single command.
 alias {vc,vcex}="code ."
 
@@ -25,6 +25,7 @@ alias {vc,vcex}="code ."
 
 # Aliases: Transform Directory
 alias a="cd .."
+alias fgt="cd /d/aa/repositories/for-git-testing"
 alias h="cd ~;clear"
 alias t="cd /c/a;clear"
 alias ta="cd /c/a"
@@ -38,7 +39,17 @@ alias h="cd $HOME"
 
 
 
-# Functions
+# Functions (!func)
+function acp () {
+echo -e '\n- Add, commit and push with template message.\n'
+if [ "$1" == "" ]; then
+  echo -e '- *** Error: Message is required.\n'
+  return
+fi
+git add --all
+git commit -a -m "Test: $1"
+git push
+}
 function cs() {
   - echo Find files that contain the string {"$1"}.
   grep -R "$1" .
@@ -74,13 +85,13 @@ function gdebr() {
   git push origin --delete "$1"
 }
 function gmerg() {
-  - echo -e '\n- Git merge and favor specified branch into current branch.'
-  if [ "$1" == "" ]; then
-    echo -e '- *** Error ***: Branch name is required.\n'
-    return
-  fi
-  git merge $1
-  echo
+- echo -e '\n- Git merge and favor specified branch into current branch.'
+if [ "$1" == "" ]; then
+  echo -e '- *** Error ***: Branch name is required.\n'
+  return
+fi
+git merge $1
+echo
 }
 function gsb() {
   - echo Switch branch.
@@ -93,13 +104,12 @@ function vers() {
 echo -e '\n- Jonathans BRC Version: May-16-2024-3-07-PM\n'
 }
 function s() {
-echo -e '\n- Git status.'
+echo -e '\n- Git status.\n'
 if [ "$1" != "" ]; then
   $1
 fi
 git remote update
 git status
-vers
 echo
 }
 function fix() {
@@ -109,10 +119,6 @@ rm package-lock.json
 git pull
 npm install
 echo
-}
-function qq() {
-echo '\n- .\n'
-
 }
 
 PS1="\w  "
