@@ -1,29 +1,70 @@
-
 #export PATH=/d/Dropbox/IT/function-first-bash-scripts:$PATH
+np_jira_number=1234
+np_branch_name=view-from-behind
 
 
 
-# Aliases - Miscellany
-alias b="code ~/.bashrc"
+
+# Git
+alias cnh="   echo;echo - Git clone.                   ;echo;git clone "
+alias lb="c;  echo;echo - List local branches.         ;echo;git branch;echo"
+alias mede="  echo;echo - Merge develop.               ;echo;git merge develop;npm install;echo"
+
+
+
+# Miscellany (!mial)
 alias c="clear"
-alias cnh="git clone "
 alias d="ls -aFl"
+alias denm="  echo;echo - Delete node_modules folder.  ;echo;sudo rm -rf node_modules;echo"
+alias depf="  echo;echo - Delete parameter 1 folder.   ;echo;sudo rm -rf "
 alias d-old="/d/Dropbox/IT/composable-batch-files/d.bat"
 alias drd="sudo rm -rf "
+alias dt="    echo;echo - Detect Operating System.     ;echo;cat /etc/os-release;echo"
+alias dt2="   echo;echo - Detect Operating System 2.   ;echo;hostnamectl;echo"
+alias dt3="   echo;echo - Detect Operating System 3.   ;echo;lsb_release-a;echo"
+alias dt4="   echo;echo - Detect Operating System 4.   ;echo;uname-r;echo"
 alias e="code "
 alias e-old="'C:\Users\jonat\AppData\Local\Programs\Microsoft VS Code\Code.exe'"
 alias fe="/d/Dropbox/IT/composable-batch-files/fe.bat"
+alias ffd="   echo;echo - Find folder.                 ;echo;find . -type d -name;echo"
+alias hi="    echo;echo - Show commands history.       ;echo;history;echo"
 alias hw="/d/Dropbox/IT/function-first-bash-scripts/hw.sh"
 alias m="/d/Dropbox/IT/composable-batch-files/m.bat"
 alias nm="/d/Dropbox/IT/function-first-bash-scripts/nm.sh"
+alias nxlu="  echo;echo - Link UI.                      ;h2;npm ci;echo 'y' | npx link ../ui;echo"
+alias nxldu=" echo;echo - Link D. and UI.               ;echo;h2;npm ci;echo 'y' | npx link ../d ../ui;echo"
 alias pt="/d/Dropbox/IT/function-first-bash-scripts/pt.sh"
-alias r="echo;echo - Reload bashrc.;. ~/.bashrc;echo"
+alias r="     echo;echo - Reload bashrc.               ;echo;. ~/.bashrc;echo"
+alias tefo="  echo;echo - Test format.                 ;echo"
+alias templa="echo;echo - .                 ;echo;;echo"
 # Example of how to assign more than 1 alias to a single command.
 alias {vc,vcex}="code ."
 
 
 
-# Aliases: Transform Directory
+# NPM
+alias nmi="   echo;echo - Install.                     ;echo;npm install;echo"
+alias nmv="c; echo;echo - Run validate.                ;echo;npm run validate;echo"
+
+
+
+# Open Files
+alias b="     echo;echo - Open bashrc.                 ;echo;code ~/.bashrc"
+
+
+
+# Switch Branch
+alias sbd="   echo;echo - Switch to branch develop.    ;echo;git checkout develop"
+function sbj() {
+  echo -e '\n Switch to branch Jonathan series.\n'
+  git checkout "XXX-${np_jira_number}-${np_branch_name}-$1"
+  npm install
+  echo ''
+}
+
+
+
+# Transform Directory
 alias a="cd .."
 alias fgt="cd /d/aa/repositories/for-git-testing"
 alias h="cd ~;clear"
@@ -40,6 +81,41 @@ alias h="cd $HOME"
 
 
 # Functions (!func)
+function rn () {
+# skw rn-bcn
+echo -e '\n- Run H. if changes were made to the UI .\n'
+h3
+nmb
+h2
+nxlu
+nm
+echo ''
+}
+function rna () {
+# skw rna-bcn
+echo -e '\n- Build all. Link both. Then run. Oct-3-2024\n'
+h1
+nmb
+h3
+nmb
+h2
+nxldu
+nm
+echo ''
+}
+function rnd () {
+# skw rnd-bcn
+echo -e '\n- Run H. if changes were made to D.\n'
+h2
+cp ~/.npmrc-h-version ~/.npmrc
+nvm use 20
+h1
+nmb
+h2
+nxld
+nm
+echo ''
+}
 function acp () {
 echo -e '\n- Add, commit and push with template message.\n'
 if [ "$1" == "" ]; then
@@ -49,6 +125,24 @@ fi
 git add --all
 git commit -a -m "Test: $1"
 git push
+}
+function acpp() {
+echo -e '\n- Add, commit and push with prefixed Jira message.\n'
+if [ "$1" == "" ]; then
+  echo -e '- *** Error: Message is required.\n'
+  return
+fi
+git add --all
+git commit -a -m "XXX-: $1."
+git push
+}
+function acppg () {
+echo -e '\n- Add, commit and push with merged develop message.\n'
+acpp "Generic checkin."
+}
+function acppm () {
+echo -e '\n- Add, commit and push with merged develop message.\n'
+acpp "Merged in develop branch."
 }
 function cs() {
   - echo Find files that contain the string {"$1"}.
@@ -110,6 +204,15 @@ if [ "$1" != "" ]; then
 fi
 git remote update
 git status
+echo
+}
+function sb() {
+echo -e '\n- Switch branch.\n'
+if [ "$1" != "" ]; then
+  $1
+fi
+git checkout "$1"
+npm install
 echo
 }
 function fix() {
