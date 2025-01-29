@@ -1,7 +1,14 @@
-#export PATH=/d/Dropbox/IT/function-first-bash-scripts:$PATH
-np_jira_number=1234
-np_branch_name=view-from-behind
+#! /user/bin/bash
+# aws s3 cp s3://whiteops-creds/Certs/user1/User1-cert.p13 .
+# export PATH=/d/Dropbox/IT/function-first-bash-scripts:$PATH
 
+
+
+# Global Variables
+np_branch_name=view-from-behind
+np_branch_name=special-view
+np_jira_number=1234
+np_jira_number=2345
 
 
 
@@ -84,6 +91,16 @@ alias h="cd $HOME"
 
 
 # Functions (!func)
+function cbcj() {
+echo -e '\n- Create branch based on current branch and global variable np_branch_name.\n'
+if [ "$1" == "" ]; then
+  echo -e '- *** Error: Branch version number is required.\n'
+  return
+fi
+git checkout -b "AAA-${np_jira_number}-${np_branch_name}-$1"
+git push --set-upstream origin "AAA-${np_jira_number}-${np_branch_name}
+echo ''
+}
 function rn () {
 # skw rn-bcn
 echo -e '\n- Run H. if changes were made to the UI .\n'
