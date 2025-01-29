@@ -94,7 +94,7 @@ alias h="cd $HOME"
 function cbcj() {
 echo -e '\n- Create branch based on current branch and global variable np_branch_name.\n'
 if [ "$1" == "" ]; then
-  echo -e '- *** Error: Branch version number is required.\n'
+  echo -e '\n- *** Error: Branch version number is required.\n'
   return
 fi
 git checkout -b "AAA-${np_jira_number}-${np_branch_name}-$1"
