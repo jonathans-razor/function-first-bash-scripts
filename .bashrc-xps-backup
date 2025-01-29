@@ -12,7 +12,7 @@ alias mede="  echo;echo - Merge develop.               ;echo;git merge develop;n
 
 
 
-# Miscellany (!mial)
+# Miscellany (!misc)
 alias c="clear"
 alias d="ls -aFl"
 alias denm="  echo;echo - Delete node_modules folder.  ;echo;sudo rm -rf node_modules;echo"
@@ -35,6 +35,7 @@ alias nxlu="  echo;echo - Link UI.                      ;h2;npm ci;echo 'y' | np
 alias nxldu=" echo;echo - Link D. and UI.               ;echo;h2;npm ci;echo 'y' | npx link ../d ../ui;echo"
 alias pt="/d/Dropbox/IT/function-first-bash-scripts/pt.sh"
 alias r="     echo;echo - Reload bashrc.               ;echo;. ~/.bashrc;echo"
+alias rebo="  echo;echo - Reboot Hoss.                 ;echo;sudo reboot;echo"
 alias tefo="  echo;echo - Test format.                 ;echo"
 alias templa="echo;echo - .                 ;echo;;echo"
 # Example of how to assign more than 1 alias to a single command.
@@ -44,7 +45,9 @@ alias {vc,vcex}="code ."
 
 # NPM
 alias nmi="   echo;echo - Install.                     ;echo;npm install;echo"
-alias nmv="c; echo;echo - Run validate.                ;echo;npm run validate;echo"
+alias nmv="   echo;echo - Run validate.                ;echo;npm run validate;echo"
+alias nmdd="  echo;echo - Run docs:dev.                ;echo;npm run docs:dev;echo"
+alias nmdo="  echo;echo - Run docs. Runs tests too.    ;echo;npm run docs;echo"
 
 
 
@@ -136,8 +139,8 @@ git add --all
 git commit -a -m "XXX-: $1."
 git push
 }
-function acppg () {
-echo -e '\n- Add, commit and push with merged develop message.\n'
+function g() {
+# skw !g-bcn, !acppg
 acpp "Generic checkin."
 }
 function acppm () {
