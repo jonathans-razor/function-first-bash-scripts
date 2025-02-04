@@ -1,10 +1,11 @@
+## BOF
 #! /user/bin/bash
 # aws s3 cp s3://whiteops-creds/Certs/user1/User1-cert.p13 .
 # export PATH=/d/Dropbox/IT/function-first-bash-scripts:$PATH
 
 
 
-# Global Variables
+## Global Variables
 np_branch_name=view-from-behind
 np_branch_name=special-view
 np_jira_number=1234
@@ -12,14 +13,14 @@ np_jira_number=2345
 
 
 
-# Git
+## Git
 alias cnh="   echo;echo - Git clone.                   ;echo;git clone "
 alias lb="c;  echo;echo - List local branches.         ;echo;git branch;echo"
 alias mede="  echo;echo - Merge develop.               ;echo;git merge develop;npm install;echo"
 
 
 
-# Miscellany (!misc)
+## Miscellany (!misc)
 alias c="clear"
 alias d="ls -aFl"
 alias denm="  echo;echo - Delete node_modules folder.  ;echo;sudo rm -rf node_modules;echo"
@@ -50,7 +51,7 @@ alias {vc,vcex}="code ."
 
 
 
-# NPM
+## NPM
 alias nmi="   echo;echo - Install.                     ;echo;npm install;echo"
 alias nmv="   echo;echo - Run validate.                ;echo;npm run validate;echo"
 alias nmdd="  echo;echo - Run docs:dev.                ;echo;npm run docs:dev;echo"
@@ -58,12 +59,13 @@ alias nmdo="  echo;echo - Run docs. Runs tests too.    ;echo;npm run docs;echo"
 
 
 
-# Open Files
-alias b="     echo;echo - Open bashrc.                 ;echo;code ~/.bashrc"
+## Open Files
+alias b="     echo;echo - Open bashrc.                 ;echo;code ~/.bashrc;echo"
+alias j1="    echo;echo - J1.txt                       ;echo;code ~/j1.txt;echo"
 
 
 
-# Switch Branch
+## Switch Branch
 alias sbd="   echo;echo - Switch to branch develop.    ;echo;git checkout develop"
 function sbj() {
   echo -e '\n Switch to branch Jonathan series.\n'
@@ -74,7 +76,7 @@ function sbj() {
 
 
 
-# Transform Directory
+## Transform Directory
 alias a="cd .."
 alias fgt="cd /d/aa/repositories/for-git-testing"
 alias h="cd ~;clear"
@@ -90,7 +92,7 @@ alias h="cd $HOME"
 
 
 
-# Functions (!func)
+## Miscellaneous Functions (!func)
 function cbcj() {
 echo -e '\n- Create branch based on current branch and global variable np_branch_name.\n'
 if [ "$1" == "" ]; then
@@ -218,10 +220,12 @@ function vers() {
 echo -e '\n- Jonathans BRC Version: May-16-2024-3-07-PM\n'
 }
 function s() {
+# s-bcn
 echo -e '\n- Git status.\n'
 if [ "$1" != "" ]; then
   $1
 fi
+clear
 git remote update
 git status
 echo
@@ -247,3 +251,5 @@ echo
 PS1="\w  "
 
 
+
+## EOF
