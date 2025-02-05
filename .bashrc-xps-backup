@@ -93,6 +93,28 @@ alias h="cd $HOME"
 
 
 ## Miscellaneous Functions (!func)
+
+function acpp() {
+echo -e '\n- Add, commit and push with prefixed Jira message.\n'
+if [ "$1" == "" ]; then
+  echo -e '- *** Error: Message is required.\n'
+  return
+fi
+git add --all
+git commit -a -m "XXX-: $1."
+git push
+}
+
+function g() {
+# skw !g-bcn, !acppg
+acpp "Generic checkin."
+}
+
+function acppm() {
+# skw !m-bcn, !acppm
+acpp "Merged in develop branch."
+}
+
 function cbcj() {
 echo -e '\n- Create branch based on current branch and global variable np_branch_name.\n'
 if [ "$1" == "" ]; then
@@ -103,7 +125,8 @@ git checkout -b "AAA-${np_jira_number}-${np_branch_name}-$1"
 git push --set-upstream origin "AAA-${np_jira_number}-${np_branch_name}
 echo ''
 }
-function rn () {
+
+function rn() {
 # skw rn-bcn
 echo -e '\n- Run H. if changes were made to the UI .\n'
 h3
@@ -113,7 +136,8 @@ nxlu
 nm
 echo ''
 }
-function rna () {
+
+function rna() {
 # skw rna-bcn
 echo -e '\n- Build all. Link both. Then run. Oct-3-2024\n'
 h1
@@ -125,7 +149,8 @@ nxldu
 nm
 echo ''
 }
-function rnd () {
+
+function rnd() {
 # skw rnd-bcn
 echo -e '\n- Run H. if changes were made to D.\n'
 h2
@@ -138,7 +163,7 @@ nxld
 nm
 echo ''
 }
-function acp () {
+function acp() {
 echo -e '\n- Add, commit and push with template message.\n'
 if [ "$1" == "" ]; then
   echo -e '- *** Error: Message is required.\n'
@@ -148,24 +173,7 @@ git add --all
 git commit -a -m "Test: $1"
 git push
 }
-function acpp() {
-echo -e '\n- Add, commit and push with prefixed Jira message.\n'
-if [ "$1" == "" ]; then
-  echo -e '- *** Error: Message is required.\n'
-  return
-fi
-git add --all
-git commit -a -m "XXX-: $1."
-git push
-}
-function g() {
-# skw !g-bcn, !acppg
-acpp "Generic checkin."
-}
-function acppm () {
-echo -e '\n- Add, commit and push with merged develop message.\n'
-acpp "Merged in develop branch."
-}
+
 function cs() {
   - echo Find files that contain the string {"$1"}.
   grep -R "$1" .
