@@ -55,108 +55,9 @@ alias {vc,vcex}="code ."
 
 
 
-#; NPM
+#; NPM (!npm, !nm)
 
-alias nmi="   echo;echo - Install.                     ;echo;npm install;echo"
-alias nmv="   echo;echo - Run validate.                ;echo;npm run validate;echo"
-alias nmdd="  echo;echo - Run docs:dev.                ;echo;npm run docs:dev;echo"
-alias nmdo="  echo;echo - Run docs. Runs tests too.    ;echo;npm run docs;echo"
-
-
-
-#; Open Files
-
-alias b="     echo;echo - Open bashrc.                 ;echo;code ~/.bashrc;echo"
-alias j1="    echo;echo - J1.txt                       ;echo;code ~/j1.txt;echo"
-
-
-
-#; Switch Branch
-
-alias sbd="   echo;echo - Switch to branch develop.    ;echo;git checkout develop"
-function sbj() {
-  echo -e '\n Switch to branch Jonathan series.\n'
-  git checkout "XXX-${np_jira_number}-${np_branch_name}-$1"
-  npm install
-  echo ''
-}
-
-
-
-#; Transform Directory
-
-alias a="cd .."
-alias fgt="cd /d/aa/repositories/for-git-testing"
-alias h="cd ~;clear"
-alias t="cd /c/a;clear"
-alias ta="cd /c/a"
-alias taa="cd /c/aa"
-alias tc="cd /c"
-alias tcbf="cd /d/dropbox/it/composable-batch-files"
-alias td="cd /d/Dropbox/IT/dsa"
-alias tf="cd /d/dropbox/it/function-first-bash-scripts"
-alias tgopr="cd ~/goproj/src"
-alias h="cd $HOME"
-
-      #; BOF
-
-#! /user/bin/bash
-# aws s3 cp s3://whiteops-creds/Certs/user1/User1-cert.p13 .
-# export PATH=/d/Dropbox/IT/function-first-bash-scripts:$PATH
-
-
-
-#; Global Variables
-
-np_branch_name=view-from-behind
-np_branch_name=special-view
-np_jira_number=1234
-np_jira_number=2345
-
-
-
-#; Git
-
-alias cnh="   echo;echo - Git clone.                   ;echo;git clone "
-alias lb="c;  echo;echo - List local branches.         ;echo;git branch;echo"
-alias mede="  echo;echo - Merge develop.               ;echo;git merge develop;npm install;echo"
-
-
-
-#; Miscellany (!misc)
-
-alias c="clear"
-alias d="ls -aFl"
-alias denm="  echo;echo - Delete node_modules folder.  ;echo;sudo rm -rf node_modules;echo"
-alias depf="  echo;echo - Delete parameter 1 folder.   ;echo;sudo rm -rf "
-alias d-old="/d/Dropbox/IT/composable-batch-files/d.bat"
-alias drd="sudo rm -rf "
-alias dt="    echo;echo - Detect Operating System.     ;echo;cat /etc/os-release;echo"
-alias dt2="   echo;echo - Detect Operating System 2.   ;echo;hostnamectl;echo"
-alias dt3="   echo;echo - Detect Operating System 3.   ;echo;lsb_release-a;echo"
-alias dt4="   echo;echo - Detect Operating System 4.   ;echo;uname-r;echo"
-alias e="code "
-alias e-old="'C:\Users\jonat\AppData\Local\Programs\Microsoft VS Code\Code.exe'"
-alias fe="/d/Dropbox/IT/composable-batch-files/fe.bat"
-alias ffd="   echo;echo - Find folder.                 ;echo;find . -type d -name;echo"
-alias hi="    echo;echo - Show commands history.       ;echo;history;echo"
-alias hw="/d/Dropbox/IT/function-first-bash-scripts/hw.sh"
-alias m="/d/Dropbox/IT/composable-batch-files/m.bat"
-alias nm="/d/Dropbox/IT/function-first-bash-scripts/nm.sh"
-alias nxlu="  echo;echo - Link UI.                      ;h2;npm ci;echo 'y' | npx link ../ui;echo"
-alias nxldu=" echo;echo - Link D. and UI.               ;echo;h2;npm ci;echo 'y' | npx link ../d ../ui;echo"
-alias pt="/d/Dropbox/IT/function-first-bash-scripts/pt.sh"
-alias r="     echo;echo - Reload bashrc.               ;echo;. ~/.bashrc;echo"
-alias rebo="  echo;echo - Reboot Hoss.                 ;echo;sudo reboot;echo"
-alias tefo="  echo;echo - Test format.                 ;echo"
-alias templa="echo;echo - .                 ;echo;;echo"
-# Example of how to assign more than 1 alias to a single command.
-alias {vc,vcex}="code ."
-
-
-
-#; NPM
-
+alias nmgl="  echo;echo - Global link.                 ;echo;npm i -g link;echo"
 alias nmi="   echo;echo - Install.                     ;echo;npm install;echo"
 alias nmv="   echo;echo - Run validate.                ;echo;npm run validate;echo"
 alias nmdd="  echo;echo - Run docs:dev.                ;echo;npm run docs:dev;echo"
@@ -200,7 +101,7 @@ alias h="cd $HOME"
 
 
 
-#; Miscellaneous Functions (!func)
+#; Miscellaneous Functions (!func, !mifct)
 
 #; 
 function template() {
