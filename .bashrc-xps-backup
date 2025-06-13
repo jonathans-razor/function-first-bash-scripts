@@ -113,6 +113,20 @@ fi
 }
 
 #; 
+function kk() {
+echo -e '\n- Switch to clipboard branch. Note: Xsel must be available.\n'
+git checkou $(xsl -ob)
+}
+
+#; 
+function kk() {
+echo -e '\n- Hello .\n'
+# qq
+cat /dev/clipboard
+echo
+}
+
+#; 
 function clip() {
 echo -e '\n- Put something on the clipboard.\n'
 # cd: May-13-2025
