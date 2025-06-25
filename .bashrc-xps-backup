@@ -18,7 +18,7 @@ np_jira_number=2345
 #; Git
 
 alias cnh="   echo;echo - Git clone.                   ;echo;git clone "
-alias lb="c;  echo;echo - List local branches.         ;echo;git branch;echo"
+alias lb="    echo;echo - List local branches.         ;echo;git branch;echo"
 alias mede="  echo;echo - Merge develop.               ;echo;git merge develop;npm install;echo"
 
 
@@ -101,6 +101,13 @@ alias h="cd $HOME"
 
 
 
+#; Upgrade
+
+alias upkr="  echo;echo - Upgrade Chrome.              ;echo;sudo yum update google-chrome;echo"
+alias upvc="  echo;echo - Upgrade VS Code.             ;echo;sudo yum upgrade code;echo"
+
+
+
 #; Miscellaneous Functions (!func, !mifct)
 
 #; 
@@ -121,7 +128,6 @@ git checkou $(xsl -ob)
 #; 
 function kk() {
 echo -e '\n- Hello .\n'
-# qq
 cat /dev/clipboard
 echo
 }
