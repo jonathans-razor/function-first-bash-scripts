@@ -63,6 +63,8 @@ alias nmi="   echo;echo - Install.                     ;echo;npm install;echo"
 alias nmv="   echo;echo - Run validate.                ;echo;npm run validate;echo"
 alias nmdd="  echo;echo - Run docs:dev.                ;echo;npm run docs:dev;echo"
 alias nmdo="  echo;echo - Run docs. Runs tests too.    ;echo;npm run docs;echo"
+alias nmv="   echo;echo - List versions in use.        ;echo;npm list;echo"
+alias nmvd="  echo;echo - List venus versions.         ;echo;npm list | grep @xi-venus;echo"
 
 
 
@@ -124,7 +126,7 @@ fi
 function kk() {
 # kk-bcn
 echo -e '\n- Switch to clipboard branch. Note: Xsel must be available.\n'
-git checkou $(xsl -ob)
+git checkout $(xsl -ob)
 git remote update
 git status
 echo
