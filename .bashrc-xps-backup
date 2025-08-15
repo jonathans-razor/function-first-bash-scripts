@@ -114,6 +114,15 @@ alias upvc="  echo;echo - Upgrade VS Code.             ;echo;sudo yum upgrade co
 #; Miscellaneous Functions (!func, !mifct)
 
 #; 
+function install-trellix-on-linux() {
+# lu: Aug-11-2025
+echo -e '\n- Install Trellix on Lenix.\n'
+sudo wget https://yum[elided] -O /var/tmp/install_trellix
+sudo bash /var/tmp/install_trellix
+echo
+}
+
+#; 
 function template() {
 echo -e '\n- .\n'
 if [ "$1" == "" ]; then
