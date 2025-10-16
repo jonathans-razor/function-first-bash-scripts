@@ -36,7 +36,7 @@ alias dt="    echo;echo - Detect Operating System.     ;echo;cat /etc/os-release
 alias dt2="   echo;echo - Detect Operating System 2.   ;echo;hostnamectl;echo"
 alias dt3="   echo;echo - Detect Operating System 3.   ;echo;lsb_release-a;echo"
 alias dt4="   echo;echo - Detect Operating System 4.   ;echo;uname-r;echo"
-alias e="code "
+alias e="     echo;echo - Edit parameter 1 in VS Code. ;echo;code " # e-bcn
 alias e-old="'C:\Users\jonat\AppData\Local\Programs\Microsoft VS Code\Code.exe'"
 alias fe="/d/Dropbox/IT/composable-batch-files/fe.bat"
 alias ffd="   echo;echo - Find folder.                 ;echo;find . -type d -name;echo"
@@ -112,6 +112,23 @@ alias upvc="  echo;echo - Upgrade VS Code.             ;echo;sudo yum upgrade co
 
 
 #; Miscellaneous Functions (!func, !mifct)
+
+#; 
+function rv () {
+# rv-bcn
+rf-rv
+}
+
+#; 
+function () rf-rv {
+# lu: Oct-16-2025
+echo -e '\n - Revert build stats. \n'
+original_folder=$(pwd)
+h1
+git checkout ./docs/public/buildStats.html
+cd $original_folder
+echo ''
+}
 
 #; 
 function install-trellix-on-linux() {
