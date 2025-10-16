@@ -42,6 +42,7 @@ alias fe="/d/Dropbox/IT/composable-batch-files/fe.bat"
 alias ffd="   echo;echo - Find folder.                 ;echo;find . -type d -name;echo"
 alias hi="    echo;echo - Show commands history.       ;echo;history;echo"
 alias hw="/d/Dropbox/IT/function-first-bash-scripts/hw.sh"
+alias {hw1,hw2}="echo;echo - Hello world multiple alias sample. ;echo"
 alias m="/d/Dropbox/IT/composable-batch-files/m.bat"
 alias nm="/d/Dropbox/IT/function-first-bash-scripts/nm.sh"
 alias nxlu="  echo;echo - Link UI.                      ;h2;npm ci;echo 'y' | npx link ../ui;echo"
@@ -120,7 +121,7 @@ rf-rv
 }
 
 #; 
-function () rf-rv {
+function rf-rv () {
 # lu: Oct-16-2025
 echo -e '\n - Revert build stats. \n'
 original_folder=$(pwd)
@@ -131,7 +132,7 @@ echo ''
 }
 
 #; 
-function install-trellix-on-linux() {
+function install-trellix-on-linux () {
 # lu: Aug-11-2025
 echo -e '\n- Install Trellix on Lenix.\n'
 sudo wget https://yum[elided] -O /var/tmp/install_trellix
