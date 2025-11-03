@@ -117,7 +117,6 @@ alias upvc="  echo;echo - Upgrade VS Code.             ;echo;sudo yum upgrade co
 #; 
 function pat () {
 # !pat-bcn
-# qq
 echo -e '\n Copy Personal Access Token to the clipboard and get status. \n'
 echo "elided personal access token string" | xsel -i -b
 get remote update
@@ -162,7 +161,7 @@ fi
 #; 
 function kk () {
 # kk-bcn
-echo -e '\n- Switch to clipboard branch. Note: Xsel must be available.\n'
+echo -e '\n- Switch to clipboard branch. Note: The Xsel tool must be available.\n'
 git checkout $(xsl -ob)
 git remote update
 git status
