@@ -115,6 +115,16 @@ alias upvc="  echo;echo - Upgrade VS Code.             ;echo;sudo yum upgrade co
 #; Miscellaneous Functions (!func, !mifct)
 
 #; 
+function pat () {
+# !pat-bcn
+# qq
+echo -e '\n Copy Personal Access Token to the clipboard and get status. \n'
+echo "elided personal access token string" | xsel -i -b
+get remote update
+git status
+}
+
+#; 
 function rv () {
 # rv-bcn
 rf-rv
@@ -150,7 +160,7 @@ fi
 }
 
 #; 
-function kk() {
+function kk () {
 # kk-bcn
 echo -e '\n- Switch to clipboard branch. Note: Xsel must be available.\n'
 git checkout $(xsl -ob)
@@ -160,7 +170,7 @@ echo
 }
 
 #; 
-function kk() {
+function kk2 () {
 echo -e '\n- Hello .\n'
 cat /dev/clipboard
 echo
@@ -323,6 +333,7 @@ fi
 git merge $1
 echo
 }
+
 function gsb() {
   - echo Switch branch.
   git checkout "$1"
@@ -333,6 +344,7 @@ echo -e '\n- Hellow world.\n'
 function vers() {
 echo -e '\n- Jonathans BRC Version: May-16-2024-3-07-PM\n'
 }
+
 function s() {
 # s-bcn
 echo -e '\n- Git status.\n'
@@ -344,6 +356,7 @@ git remote update
 git status
 echo
 }
+
 function sb() {
 echo -e '\n- Switch branch.\n'
 if [ "$1" != "" ]; then
