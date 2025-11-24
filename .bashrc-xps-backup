@@ -45,13 +45,15 @@ alias hw="/d/Dropbox/IT/function-first-bash-scripts/hw.sh"
 alias {hw1,hw2}="echo;echo - Hello world multiple alias sample. ;echo"
 alias m="/d/Dropbox/IT/composable-batch-files/m.bat"
 alias nm="/d/Dropbox/IT/function-first-bash-scripts/nm.sh"
+# qq
+alias nmgl="  echo;echo - Global liink.                 ;echo;npm i -g link;echo" # If you do this, you won't have to click 'y' for symlinks. Nov-5-2025
 alias nxlu="  echo;echo - Link UI.                      ;h2;npm ci;echo 'y' | npx link ../ui;echo"
 alias nxldu=" echo;echo - Link D. and UI.               ;echo;h2;npm ci;echo 'y' | npx link ../d ../ui;echo"
 alias pt="/d/Dropbox/IT/function-first-bash-scripts/pt.sh"
-alias r="     echo;echo - Reload bashrc.               ;echo;. ~/.bashrc;echo"
-alias rebo="  echo;echo - Reboot Hoss.                 ;echo;sudo reboot;echo"
-alias tefo="  echo;echo - Test format.                 ;echo"
-alias templa="echo;echo - .                 ;echo;;echo"
+alias r="     echo;echo - Reload bashrc.                ;echo;. ~/.bashrc;echo"
+alias rebo="  echo;echo - Reboot Hoss.                  ;echo;sudo reboot;echo"
+alias tefo="  echo;echo - Test format.                  ;echo"
+alias templa="echo;echo - .                             ;echo;;echo"
 # Example of how to assign more than 1 alias to a single command.
 alias {vc,vcex}="code ."
 
