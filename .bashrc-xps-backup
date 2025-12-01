@@ -14,12 +14,26 @@ np_jira_number=1234
 np_jira_number=2345
 
 
+#; Copy (!copy, !cp)
+alias cppl2a="echo;echo - Copy package-lock.json to a.;echo;h2;cp package-lock.json /data/home/jj/a/;echo"
+
+
+
+#; Delete (!dele)
+alias deh2=" echo;echo - Delete folder h2.      ;echo;h0;sudo -rf h2;echo"
+
+
 
 #; Git
-
 alias cnh="   echo;echo - Git clone.                   ;echo;git clone "
+alias cnh2="  echo;echo - Git clone H2.                ;echo;h0;git clone https://gitlab.code.ttest.org/test/test-module;echo"
 alias lb="    echo;echo - List local branches.         ;echo;git branch;echo"
 alias mede="  echo;echo - Merge develop.               ;echo;git merge develop;npm install;echo"
+
+
+
+#; Install Packages (skw python packages
+alias i1="  echo;echo - Install Python.     ;echo;sudo yum install python2.10;echo"
 
 
 
@@ -45,12 +59,11 @@ alias hw="/d/Dropbox/IT/function-first-bash-scripts/hw.sh"
 alias {hw1,hw2}="echo;echo - Hello world multiple alias sample. ;echo"
 alias m="/d/Dropbox/IT/composable-batch-files/m.bat"
 alias nm="/d/Dropbox/IT/function-first-bash-scripts/nm.sh"
-# qq
 alias nmgl="  echo;echo - Global liink.                 ;echo;npm i -g link;echo" # If you do this, you won't have to click 'y' for symlinks. Nov-5-2025
 alias nxlu="  echo;echo - Link UI.                      ;h2;npm ci;echo 'y' | npx link ../ui;echo"
 alias nxldu=" echo;echo - Link D. and UI.               ;echo;h2;npm ci;echo 'y' | npx link ../d ../ui;echo"
 alias pt="/d/Dropbox/IT/function-first-bash-scripts/pt.sh"
-alias r="     echo;echo - Reload bashrc.                ;echo;. ~/.bashrc;echo"
+alias r="     echo;echo - Reload bashrc.                ;echo;. ~/.bashrc;echo" # !r-bcn
 alias rebo="  echo;echo - Reboot Hoss.                  ;echo;sudo reboot;echo"
 alias tefo="  echo;echo - Test format.                  ;echo"
 alias templa="echo;echo - .                             ;echo;;echo"
@@ -78,6 +91,17 @@ alias j1="    echo;echo - J1.txt                       ;echo;code ~/j1.txt;echo"
 
 
 
+#; Sed (!sed)
+
+function p2d() {
+echo -e '\n - Point to develop setting.'
+h2
+sed -i 's#test-tomorrow#develop-tomrrow#g' test-config.dev.json
+sed -i '"key":"blah"#"key":"blah2"#g' test-config.dev.json
+}
+
+
+
 #; Switch Branch
 
 alias sbd="   echo;echo - Switch to branch develop.    ;echo;git checkout develop"
@@ -92,6 +116,7 @@ function sbj() {
 
 #; Transform Directory
 
+alias 1="         echo;echo - 1.     ;echo;h1;echo"
 alias a="cd .."
 alias fgt="cd /d/aa/repositories/for-git-testing"
 alias h="cd ~;clear"
@@ -377,7 +402,11 @@ npm install
 echo
 }
 
+
+
+#; Set prompt.
 PS1="\w  "
+h2
 
 
 
