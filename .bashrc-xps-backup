@@ -186,8 +186,29 @@ fi
 }
 
 #; 
+function f () {
+# !f-bcn
+if [ "$1" != "" ]; then
+  $1
+fi
+clear
+echo -e '\n - Fix NPM installation in current folder. \n'
+git pull
+npm ci
+echo
+}
+
+#; 
+function k () {
+# !k-bcn
+echo -e '\n- Switch to develop branch. \n'
+git checkout develop
+echo
+}
+
+#; 
 function kk () {
-# kk-bcn
+# !kk-bcn
 echo -e '\n- Switch to clipboard branch. Note: The Xsel tool must be available.\n'
 git checkout $(xsl -ob)
 git remote update
