@@ -57,6 +57,7 @@ alias ffd="   echo;echo - Find folder.                 ;echo;find . -type d -nam
 alias hi="    echo;echo - Show commands history.       ;echo;history;echo"
 alias hw="/d/Dropbox/IT/function-first-bash-scripts/hw.sh"
 alias {hw1,hw2}="echo;echo - Hello world multiple alias sample. ;echo"
+alias j="     echo;echo - Make everything clear.       ;echo;h2;make everything-clear;echo" # !j-bcn
 alias m="/d/Dropbox/IT/composable-batch-files/m.bat"
 alias nm="/d/Dropbox/IT/function-first-bash-scripts/nm.sh"
 alias nmgl="  echo;echo - Global liink.                 ;echo;npm i -g link;echo" # If you do this, you won't have to click 'y' for symlinks. Nov-5-2025
