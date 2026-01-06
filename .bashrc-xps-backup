@@ -103,8 +103,10 @@ sed -i '"key":"blah"#"key":"blah2"#g' test-config.dev.json
 
 
 
-#; Switch Branch
+#; Switch Branch Functions (!sb)
 
+alias sb="k" # !sb-bcn If you add multiple aliases here, it is the same as adding multiple
+# function aliases! Jan-6-2026
 alias sbd="   echo;echo - Switch to branch develop.    ;echo;git checkout develop"
 function sbj() {
   echo -e '\n Switch to branch Jonathan series.\n'
@@ -428,7 +430,6 @@ echo
 
 #; Set prompt.
 PS1="\w  "
-h2
 
 
 
