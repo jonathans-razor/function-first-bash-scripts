@@ -75,7 +75,8 @@ alias {vc,vcex}="code ."
 
 #; NPM (!npm, !nm)
 
-alias nmgl="  echo;echo - Global link.                 ;echo;npm i -g link;echo"  # Replaces echo 'y'
+alias nmgl="  echo;echo - Global link.                 ;echo;npm i -g link;echo"  # Replaces echo 'y'. If you do this you won't have to click 'y' for symlinks. Jan-14-2026
+alias nmgl="  echo;echo - Global link prerequisite.    ;echo;sudo chown -R $(whoami) $(npm prefix -g);echo" 
 alias nmi="   echo;echo - Install.                     ;echo;npm install;echo"
 alias nmv="   echo;echo - Run validate.                ;echo;npm run validate;echo"
 alias nmdd="  echo;echo - Run docs:dev.                ;echo;npm run docs:dev;echo"
