@@ -14,12 +14,12 @@ np_jira_number=1234
 np_jira_number=2345
 
 
-#; Copy (!copy, !cp)
+#; Copy Aliases (!copy, !cp)
 alias cppl2a="echo;echo - Copy package-lock.json to a.;echo;h2;cp package-lock.json /data/home/jj/a/;echo"
 
 
 
-#; Delete (!dele)
+#; Delete Aliases (!dele)
 alias deh2=" echo;echo - Delete folder h2.      ;echo;h0;sudo -rf h2;echo"
 
 
@@ -37,7 +37,7 @@ alias i1="  echo;echo - Install Python.     ;echo;sudo yum install python2.10;ec
 
 
 
-#; Miscellany (!misc)
+#; Miscellaneous Aliases (!misc)
 
 alias c="clear"
 alias d="ls -aFl"
@@ -86,10 +86,17 @@ alias nmvd="  echo;echo - List venus versions.         ;echo;npm list | grep @xi
 
 
 
-#; Open Files
+#; Open Files Aliases and Functions (!oi)
 
 alias b="     echo;echo - Open bashrc.                 ;echo;code ~/.bashrc;echo"
 alias j1="    echo;echo - J1.txt                       ;echo;code ~/j1.txt;echo"
+
+function oi() {
+# !oi-bcn
+echo -e '\n - Open files of interest.'
+code ~/j1.txt
+code ~/j2.txt
+}
 
 
 
@@ -136,7 +143,7 @@ alias h="cd $HOME"
 
 
 
-#; Upgrade
+#; Upgrade Aliases
 
 alias upkr="  echo;echo - Upgrade Chrome.              ;echo;sudo yum update google-chrome;echo"
 alias upvc="  echo;echo - Upgrade VS Code.             ;echo;sudo yum upgrade code;echo"
