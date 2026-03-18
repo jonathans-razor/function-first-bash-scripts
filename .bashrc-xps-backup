@@ -201,26 +201,37 @@ echo ''
 
 #; 
 function af () {
-# !afs-bcn
+# !af-bcn, commt-messages-series-sz
 acp "Addressed MR feedback."
+}
+
+#; 
+function fl () {
+# !fl-bcn, commt-messages-series-sz
+acp "Fixed lint errors."
 }
 
 #; 
 function g () {
 # !g-bcn
+if [ "$1"  != "" ]; then
+  $1
+fi
+acp "Generic checkin"
 echo
 }
 
 #; 
-function k () {
-# !k-bcn
-
+function pu () {
+# !pu-bcn
+echo - Push up the merged in main branch changes.
+acp "Merged in develop branch"
 echo
 }
 
 #; 
 function ff () {
-# !af-bcn
+# !ff-bcn
 echo -e '\n - Briongs all 3 main branches up to date. \n'
 1
 k
@@ -231,12 +242,6 @@ f
 3
 k
 f
-echo
-}
-
-#; 
-function ss () {
-# !ss-bcn
 echo
 }
 
@@ -299,7 +304,7 @@ echo
 
 #; 
 function k () {
-# !k-bcn
+# (!k-bcn)
 echo -e '\n- Switch to develop branch. \n'
 git checkout develop
 echo
