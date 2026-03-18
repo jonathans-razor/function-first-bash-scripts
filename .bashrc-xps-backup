@@ -150,7 +150,95 @@ alias upvc="  echo;echo - Upgrade VS Code.             ;echo;sudo yum upgrade co
 
 
 
-#; Miscellaneous Functions (!func, !mifct)
+#; Miscellaneous Functions (!fx, !func, !mifct)
+
+#; 
+function tmp () {
+# !-bcn
+echo -e '\n - . \n'
+echo ''
+}
+
+#; 
+function ss () {
+# !ss-bcn
+clear
+echo -e '\n - Super status. \n'
+original_folder=$(pwd)
+h1
+rv
+clear
+h1
+git remote update
+git status
+h2
+git remote update
+git status
+h3
+git remote update
+git status
+echo ''
+cd $original_folder
+}
+
+#; 
+function ps () {
+# !-psbcn
+echo -e '\n - Git paginated status. \n'
+clear
+git --paginate status
+echo ''
+}
+
+#; 
+function jp () {
+# !jp-bcn
+echo -e '\n - Run a specific port . \n'
+h2
+npm run dev -- --port 5189
+echo ''
+}
+
+#; 
+function af () {
+# !afs-bcn
+acp "Addressed MR feedback."
+}
+
+#; 
+function g () {
+# !g-bcn
+echo
+}
+
+#; 
+function k () {
+# !k-bcn
+
+echo
+}
+
+#; 
+function ff () {
+# !af-bcn
+echo -e '\n - Briongs all 3 main branches up to date. \n'
+1
+k
+f
+2
+k
+f
+3
+k
+f
+echo
+}
+
+#; 
+function ss () {
+# !ss-bcn
+echo
+}
 
 #; 
 function pat () {
