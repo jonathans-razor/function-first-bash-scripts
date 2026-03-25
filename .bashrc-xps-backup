@@ -20,13 +20,15 @@ alias cppl2a="echo;echo - Copy package-lock.json to a.;echo;h2;cp package-lock.j
 
 
 #; Delete Aliases (!dele)
-alias deh2=" echo;echo - Delete folder h2.      ;echo;h0;sudo -rf h2;echo"
+alias deh2=" echo;echo - Delete folder h2.      ;echo;h0;sudo rm -rf h2;echo"
+alias deh3=" echo;echo - Delete folder h3.      ;echo;h0;sudo rm -rf aries-ui-library;echo"
 
 
 
 #; Git
 alias cnh="   echo;echo - Git clone.                   ;echo;git clone "
-alias cnh2="  echo;echo - Git clone H2.                ;echo;h0;git clone https://gitlab.code.ttest.org/test/test-module;echo"
+alias cnh2="  echo;echo - Git clone H2.                ;echo;h0;git clone https://gitlab.code.ttest.org/test/test-module.git;echo"
+alias cnh3="  echo;echo - Git clone H3.                ;echo;h0;git clone https://gitlab.code.ttest.org/test/test-module.git;echo"
 alias lb="    echo;echo - List local branches.         ;echo;git branch;echo"
 alias mede="  echo;echo - Merge develop.               ;echo;git merge develop;npm install;echo"
 
