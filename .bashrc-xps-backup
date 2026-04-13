@@ -72,6 +72,7 @@ alias tefo="  echo;echo - Test format.                  ;echo"
 alias templa="echo;echo - .                             ;echo;;echo"
 # Example of how to assign more than 1 alias to a single command.
 alias {vc,vcex}="code ."
+alias z="     echo;echo - H2 then status.               ;echo;s h2" # !z-bcn
 
 
 
@@ -153,6 +154,14 @@ alias upvc="  echo;echo - Upgrade VS Code.             ;echo;sudo yum upgrade co
 
 
 #; Miscellaneous Functions (!fx, !func, !mifct)
+
+#; 
+function h2 () {
+# !h2-bcn
+echo -e '\n - H2 folder. \n'
+cd $HOME/repos/...
+echo ''
+}
 
 #; 
 function tmp () {
