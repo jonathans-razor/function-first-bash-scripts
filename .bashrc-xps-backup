@@ -153,7 +153,74 @@ alias upvc="  echo;echo - Upgrade VS Code.             ;echo;sudo yum upgrade co
 
 
 
-#; Miscellaneous Functions (!fx, !func, !mifct)
+#;+ Commit Functions (!cfct)
+
+#;;
+function acp() {
+# !acp-bcn
+echo -e '\n- Add, commit and push with template message.\n'
+if [ "$1" == "" ]; then
+  echo -e '- *** Error: Message is required.\n'
+  return
+fi
+git add --all
+git commit -a -m "$1"
+git push
+}
+
+#;;
+function af () {
+# !af-bcn
+acp "Address MR feedback."
+}
+
+#;;
+function fl () {
+# !fl-bcn
+acp "Fix lint errors."
+}
+
+#;;
+function g () {
+# !g-bcn
+if [ "$1"  != "" ]; then
+  $1
+fi
+acp "Generic checkin."
+echo
+}
+
+#;;
+function m() {
+# qq
+# !m-bcn
+echo - Merge in develop branch.
+echo
+git merge develop
+npm install
+}
+
+#;;
+function ps () {
+# !ps-bcn
+echo -e '\n - Git paginated status. \n'
+clear
+git --paginate status
+echo
+}
+
+#;;
+function pu () {
+# !pu-bcn
+echo - Push up the merged in develop branch changes.
+clear
+acp "Merge in develop branch."
+echo
+}
+
+
+
+#;+ Miscellaneous Functions (!fx, !func, !mifct)
 
 #; 
 function h2 () {
@@ -193,43 +260,12 @@ cd $original_folder
 }
 
 #; 
-function ps () {
-# !-psbcn
-echo -e '\n - Git paginated status. \n'
-clear
-git --paginate status
-echo ''
-}
-
-#; 
 function jp () {
 # !jp-bcn
 echo -e '\n - Run a specific port . \n'
 h2
 npm run dev -- --port 5189
 echo ''
-}
-
-#; 
-function af () {
-# !af-bcn, commt-messages-series-sz
-acp "Addressed MR feedback."
-}
-
-#; 
-function fl () {
-# !fl-bcn, commt-messages-series-sz
-acp "Fixed lint errors."
-}
-
-#; 
-function g () {
-# !g-bcn
-if [ "$1"  != "" ]; then
-  $1
-fi
-acp "Generic checkin"
-echo
 }
 
 #; 
@@ -368,44 +404,6 @@ if [ "$1" == "" ]; then
   echo -e '- *** Error: Parameter 1 is required.\n'
   return
 fi
-}
-
-#+ ACP Functions
-
-#;;
-function acp() {
-echo -e '\n- Add, commit and push with template message.\n'
-if [ "$1" == "" ]; then
-  echo -e '- *** Error: Message is required.\n'
-  return
-fi
-git add --all
-git commit -a -m "Test: $1"
-git push
-}
-
-#;;
-function acpp() {
-echo -e '\n- Add, commit and push with prefixed Jira message.\n'
-if [ "$1" == "" ]; then
-  echo -e '- *** Error: Message is required.\n'
-  return
-fi
-git add --all
-git commit -a -m "XXX-: $1."
-git push
-}
-
-#;
-function g() {
-# skw !g-bcn, !acppg
-acpp "Generic checkin."
-}
-
-#;
-function m() {
-# skw !m-bcn, !acppm
-acpp "Merge in develop branch."
 }
 
 function cbcj() {
