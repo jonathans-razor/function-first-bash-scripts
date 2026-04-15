@@ -14,6 +14,73 @@ np_jira_number=1234
 np_jira_number=2345
 
 
+
+#;+ Commit Functions (!cfct)
+
+#;;
+function acp() {
+# !acp-bcn
+echo -e '\n- Add, commit and push with template message.\n'
+if [ "$1" == "" ]; then
+  echo -e '- *** Error: Message is required.\n'
+  return
+fi
+git add --all
+git commit -a -m "$1"
+git push
+}
+
+#;;
+function af () {
+# !af-bcn
+acp "Address MR feedback."
+}
+
+#;;
+function fl () {
+# !fl-bcn
+acp "Fix lint errors."
+}
+
+#;;
+function g () {
+# !g-bcn
+if [ "$1"  != "" ]; then
+  $1
+fi
+acp "Generic checkin."
+echo
+}
+
+#;;
+function m() {
+# !m-bcn
+echo - Merge in develop branch.
+echo
+git merge develop
+npm install
+}
+
+#;;
+function ps () {
+# !ps-bcn
+echo -e '\n - Git paginated status. \n'
+clear
+git --paginate status
+echo
+}
+
+#;;
+function pu () {
+# !pu-bcn
+echo - Push up the merged in develop branch changes.
+clear
+acp "Merge in develop branch."
+echo
+}
+
+
+
 #; Copy Aliases (!copy, !cp)
 alias cppl2a="echo;echo - Copy package-lock.json to a.;echo;h2;cp package-lock.json /data/home/jj/a/;echo"
 
@@ -76,6 +143,356 @@ alias z="     echo;echo - H2 then status.               ;echo;s h2" # !z-bcn
 
 
 
+#;+ Miscellaneous Functions (!fx, !func, !mfct, !mifct)
+
+#;; 
+function k () {
+# (!k-bcn)
+if [ "$1" != "" ]; then
+  echo -e '\n- Switch to develop branch. \n'
+  git checkout develop
+  echo
+fi
+# qq
+echo -e '\n- Switch to branch [$1]. \n'
+git checkout "$1"
+git remote update
+get status
+echo
+}
+
+#;; 
+function f () {
+# !f-bcn
+if [ "$1" != "" ]; then
+  $1
+fi
+clear
+echo -e '\n - Fix NPM installation in folder. \n'
+git pull
+npm ci
+echo
+}
+
+#;;
+function h2 () {
+# !h2-bcn
+echo -e '\n - H2 folder. \n'
+cd $HOME/repos/...
+echo ''
+}
+
+#;;
+function tmp () {
+# !-bcn
+echo -e '\n - . \n'
+echo ''
+}
+
+#;;
+function ss () {
+# !ss-bcn
+clear
+echo -e '\n - Super status. \n'
+original_folder=$(pwd)
+h1
+rv
+clear
+h1
+git remote update
+git status
+h2
+git remote update
+git status
+h3
+git remote update
+git status
+echo ''
+cd $original_folder
+}
+
+#;; 
+function jp () {
+# !jp-bcn
+echo -e '\n - Run a specific port . \n'
+h2
+npm run dev -- --port 5189
+echo ''
+}
+
+#;; 
+function pu () {
+# !pu-bcn
+echo - Push up the merged in main branch changes.
+acp "Merged in develop branch"
+echo
+}
+
+#;; 
+function ff () {
+# (!ff-bcn)
+clear
+echo -e '\n - Bring all 3 main branches up to date. \n'
+1
+k
+f
+2
+k
+f
+3
+k
+f
+echo
+}
+
+#;; 
+function pat () {
+# !pat-bcn
+echo -e '\n Copy Personal Access Token to the clipboard and get status. \n'
+echo "elided personal access token string" | xsel -i -b
+get remote update
+git status
+}
+
+#;; 
+function rv () {
+# rv-bcn
+rf-rv
+}
+
+#;; 
+function rf-rv () {
+# lu: Oct-16-2025
+echo -e '\n - Revert build stats. \n'
+original_folder=$(pwd)
+h1
+git checkout ./docs/public/buildStats.html
+cd $original_folder
+echo ''
+}
+
+#;; 
+function install-trellix-on-linux () {
+# lu: Aug-11-2025
+echo -e '\n- Install Trellix on Lenix.\n'
+sudo wget https://yum[elided] -O /var/tmp/install_trellix
+sudo bash /var/tmp/install_trellix
+echo
+}
+
+#;; 
+function template() {
+echo -e '\n- .\n'
+if [ "$1" == "" ]; then
+  echo -e '- *** Error: Parameter 1 is required.\n'
+  return
+fi
+}
+
+#;; 
+function kk () {
+# !kk-bcn
+echo -e '\n- Switch to clipboard branch. Note: The Xsel tool must be available.\n'
+git checkout $(xsl -ob)
+git remote update
+git status
+echo
+}
+
+#;; 
+function kk2 () {
+echo -e '\n- Hello .\n'
+cat /dev/clipboard
+echo
+}
+
+#;; 
+function clip() {
+echo -e '\n- Put something on the clipboard.\n'
+# cd: May-13-2025
+echo 'test' | xsel -i -b
+}
+
+#;; 
+function install-xsel() {
+echo -e '\n- How to install xcel.\n'
+# cd: May-13-2025
+sudo yum install xsel
+}
+
+#;; 
+function dashes-are-ok() {
+echo -e '\n- Dashes are okay in names.\n'
+if [ "$1" == "" ]; then
+  echo -e '- *** Error: Parameter 1 is required.\n'
+  return
+fi
+}
+
+#;; 
+function template() {
+echo -e '\n- .\n'
+if [ "$1" == "" ]; then
+  echo -e '- *** Error: Parameter 1 is required.\n'
+  return
+fi
+}
+
+#;; 
+function cbcj() {
+echo -e '\n- Create branch based on current branch and global variable np_branch_name.\n'
+if [ "$1" == "" ]; then
+  echo -e '\n- *** Error: Branch version number is required.\n'
+  return
+fi
+git checkout -b "AAA-${np_jira_number}-${np_branch_name}-$1"
+git push --set-upstream origin "AAA-${np_jira_number}-${np_branch_name}"
+echo ''
+}
+
+#;; 
+function rn() {
+# skw rn-bcn
+echo -e '\n- Run H. if changes were made to the UI .\n'
+h3
+nmb
+h2
+nxlu
+nm
+echo ''
+}
+
+#;; 
+function rna() {
+# skw rna-bcn
+echo -e '\n- Build all. Link both. Then run. Oct-3-2024\n'
+h1
+nmb
+h3
+nmb
+h2
+nxldu
+nm
+echo ''
+}
+
+#;; 
+function rnd() {
+# skw rnd-bcn
+echo -e '\n- Run H. if changes were made to D.\n'
+h2
+cp ~/.npmrc-h-version ~/.npmrc
+nvm use 20
+h1
+nmb
+h2
+nxld
+nm
+echo ''
+}
+
+#;; 
+function cs() {
+  - echo Find files that contain the string {"$1"}.
+  grep -R "$1" .
+}
+
+#;; 
+function csv() {
+  - echo Find Vue files that contain the string {"$1"}.
+  grep -r --inclue=*.vue "$1" .
+}
+
+#;; 
+function cbf() {
+  echo -e '\n- Cbf.\n'
+  cd /d/dropbox/it/composable-batch-files
+}
+
+#;; 
+function fs() {
+  - echo Find files with {"$1"} in the name.
+  find -iname "*$1*"  
+}
+
+#;; 
+function gcb() {
+  - echo Create branch based on current branch.
+  git checkout -b "$1"
+  git push --set-upstream origin "$1"
+}
+
+#;; 
+function gdebr() {
+  - echo Delete branch.
+  git checkout develop
+  git branch -D "$1"
+  git push origin --delete "$1"
+}
+
+#;; 
+function gmerg() {
+- echo -e '\n- Git merge and favor specified branch into current branch.'
+if [ "$1" == "" ]; then
+  echo -e '- *** Error ***: Branch name is required.\n'
+  return
+fi
+git merge $1
+echo
+}
+
+#;; 
+function gsb() {
+  - echo Switch branch.
+  git checkout "$1"
+}
+
+#;; 
+function hw3() {
+echo -e '\n- Hellow world.\n'
+}
+
+#;; 
+function vers() {
+echo -e '\n- Jonathans BRC Version: May-16-2024-3-07-PM\n'
+}
+
+#;; 
+function s() {
+# s-bcn
+echo -e '\n- Git status.\n'
+if [ "$1" != "" ]; then
+  $1
+fi
+clear
+git remote update
+git status
+echo
+}
+
+#;; 
+function sb() {
+echo -e '\n- Switch branch.\n'
+if [ "$1" != "" ]; then
+  $1
+fi
+git checkout "$1"
+npm install
+echo
+}
+
+#;; 
+function fix() {
+echo '\n- Fix NPM installation in the current folder.\n'
+sudo rm -rf node_modules
+rm package-lock.json
+git pull
+npm install
+echo
+}
+
+
+
 #; NPM (!npm, !nm)
 
 alias nmgl="  echo;echo - Global link.                 ;echo;npm i -g link;echo"  # Replaces echo 'y'. If you do this you won't have to click 'y' for symlinks. Jan-14-2026
@@ -103,7 +520,7 @@ code ~/j2.txt
 
 
 
-#; Sed (!sed)
+#; Sed Functions (!sed, !sfct)
 
 function p2d() {
 echo -e '\n - Point to develop setting.'
@@ -150,391 +567,6 @@ alias h="cd $HOME"
 
 alias upkr="  echo;echo - Upgrade Chrome.              ;echo;sudo yum update google-chrome;echo"
 alias upvc="  echo;echo - Upgrade VS Code.             ;echo;sudo yum upgrade code;echo"
-
-
-
-#;+ Commit Functions (!cfct)
-
-#;;
-function acp() {
-# !acp-bcn
-echo -e '\n- Add, commit and push with template message.\n'
-if [ "$1" == "" ]; then
-  echo -e '- *** Error: Message is required.\n'
-  return
-fi
-git add --all
-git commit -a -m "$1"
-git push
-}
-
-#;;
-function af () {
-# !af-bcn
-acp "Address MR feedback."
-}
-
-#;;
-function fl () {
-# !fl-bcn
-acp "Fix lint errors."
-}
-
-#;;
-function g () {
-# !g-bcn
-if [ "$1"  != "" ]; then
-  $1
-fi
-acp "Generic checkin."
-echo
-}
-
-#;;
-function m() {
-# qq
-# !m-bcn
-echo - Merge in develop branch.
-echo
-git merge develop
-npm install
-}
-
-#;;
-function ps () {
-# !ps-bcn
-echo -e '\n - Git paginated status. \n'
-clear
-git --paginate status
-echo
-}
-
-#;;
-function pu () {
-# !pu-bcn
-echo - Push up the merged in develop branch changes.
-clear
-acp "Merge in develop branch."
-echo
-}
-
-
-
-#;+ Miscellaneous Functions (!fx, !func, !mifct)
-
-#; 
-function h2 () {
-# !h2-bcn
-echo -e '\n - H2 folder. \n'
-cd $HOME/repos/...
-echo ''
-}
-
-#; 
-function tmp () {
-# !-bcn
-echo -e '\n - . \n'
-echo ''
-}
-
-#; 
-function ss () {
-# !ss-bcn
-clear
-echo -e '\n - Super status. \n'
-original_folder=$(pwd)
-h1
-rv
-clear
-h1
-git remote update
-git status
-h2
-git remote update
-git status
-h3
-git remote update
-git status
-echo ''
-cd $original_folder
-}
-
-#; 
-function jp () {
-# !jp-bcn
-echo -e '\n - Run a specific port . \n'
-h2
-npm run dev -- --port 5189
-echo ''
-}
-
-#; 
-function pu () {
-# !pu-bcn
-echo - Push up the merged in main branch changes.
-acp "Merged in develop branch"
-echo
-}
-
-#; 
-function ff () {
-# !ff-bcn
-echo -e '\n - Briongs all 3 main branches up to date. \n'
-1
-k
-f
-2
-k
-f
-3
-k
-f
-echo
-}
-
-#; 
-function pat () {
-# !pat-bcn
-echo -e '\n Copy Personal Access Token to the clipboard and get status. \n'
-echo "elided personal access token string" | xsel -i -b
-get remote update
-git status
-}
-
-#; 
-function rv () {
-# rv-bcn
-rf-rv
-}
-
-#; 
-function rf-rv () {
-# lu: Oct-16-2025
-echo -e '\n - Revert build stats. \n'
-original_folder=$(pwd)
-h1
-git checkout ./docs/public/buildStats.html
-cd $original_folder
-echo ''
-}
-
-#; 
-function install-trellix-on-linux () {
-# lu: Aug-11-2025
-echo -e '\n- Install Trellix on Lenix.\n'
-sudo wget https://yum[elided] -O /var/tmp/install_trellix
-sudo bash /var/tmp/install_trellix
-echo
-}
-
-#; 
-function template() {
-echo -e '\n- .\n'
-if [ "$1" == "" ]; then
-  echo -e '- *** Error: Parameter 1 is required.\n'
-  return
-fi
-}
-
-#; 
-function f () {
-# !f-bcn
-if [ "$1" != "" ]; then
-  $1
-fi
-clear
-echo -e '\n - Fix NPM installation in folder. \n'
-git pull
-npm ci
-echo
-}
-
-#; 
-function k () {
-# (!k-bcn)
-echo -e '\n- Switch to develop branch. \n'
-git checkout develop
-echo
-}
-
-#; 
-function kk () {
-# !kk-bcn
-echo -e '\n- Switch to clipboard branch. Note: The Xsel tool must be available.\n'
-git checkout $(xsl -ob)
-git remote update
-git status
-echo
-}
-
-#; 
-function kk2 () {
-echo -e '\n- Hello .\n'
-cat /dev/clipboard
-echo
-}
-
-#; 
-function clip() {
-echo -e '\n- Put something on the clipboard.\n'
-# cd: May-13-2025
-echo 'test' | xsel -i -b
-}
-
-#; 
-function install-xsel() {
-echo -e '\n- How to install xcel.\n'
-# cd: May-13-2025
-sudo yum install xsel
-}
-
-#; 
-function dashes-are-ok() {
-echo -e '\n- Dashes are okay in names.\n'
-if [ "$1" == "" ]; then
-  echo -e '- *** Error: Parameter 1 is required.\n'
-  return
-fi
-}
-
-#; 
-function template() {
-echo -e '\n- .\n'
-if [ "$1" == "" ]; then
-  echo -e '- *** Error: Parameter 1 is required.\n'
-  return
-fi
-}
-
-function cbcj() {
-echo -e '\n- Create branch based on current branch and global variable np_branch_name.\n'
-if [ "$1" == "" ]; then
-  echo -e '\n- *** Error: Branch version number is required.\n'
-  return
-fi
-git checkout -b "AAA-${np_jira_number}-${np_branch_name}-$1"
-git push --set-upstream origin "AAA-${np_jira_number}-${np_branch_name}"
-echo ''
-}
-
-function rn() {
-# skw rn-bcn
-echo -e '\n- Run H. if changes were made to the UI .\n'
-h3
-nmb
-h2
-nxlu
-nm
-echo ''
-}
-
-function rna() {
-# skw rna-bcn
-echo -e '\n- Build all. Link both. Then run. Oct-3-2024\n'
-h1
-nmb
-h3
-nmb
-h2
-nxldu
-nm
-echo ''
-}
-
-function rnd() {
-# skw rnd-bcn
-echo -e '\n- Run H. if changes were made to D.\n'
-h2
-cp ~/.npmrc-h-version ~/.npmrc
-nvm use 20
-h1
-nmb
-h2
-nxld
-nm
-echo ''
-}
-
-function cs() {
-  - echo Find files that contain the string {"$1"}.
-  grep -R "$1" .
-}
-function csv() {
-  - echo Find Vue files that contain the string {"$1"}.
-  grep -r --inclue=*.vue "$1" .
-}
-function cbf() {
-  echo -e '\n- Cbf.\n'
-  cd /d/dropbox/it/composable-batch-files
-}
-
-function fs() {
-  - echo Find files with {"$1"} in the name.
-  find -iname "*$1*"  
-}
-
-function gcb() {
-  - echo Create branch based on current branch.
-  git checkout -b "$1"
-  git push --set-upstream origin "$1"
-}
-function gdebr() {
-  - echo Delete branch.
-  git checkout develop
-  git branch -D "$1"
-  git push origin --delete "$1"
-}
-function gmerg() {
-- echo -e '\n- Git merge and favor specified branch into current branch.'
-if [ "$1" == "" ]; then
-  echo -e '- *** Error ***: Branch name is required.\n'
-  return
-fi
-git merge $1
-echo
-}
-
-function gsb() {
-  - echo Switch branch.
-  git checkout "$1"
-}
-function hw3() {
-echo -e '\n- Hellow world.\n'
-}
-function vers() {
-echo -e '\n- Jonathans BRC Version: May-16-2024-3-07-PM\n'
-}
-
-function s() {
-# s-bcn
-echo -e '\n- Git status.\n'
-if [ "$1" != "" ]; then
-  $1
-fi
-clear
-git remote update
-git status
-echo
-}
-
-function sb() {
-echo -e '\n- Switch branch.\n'
-if [ "$1" != "" ]; then
-  $1
-fi
-git checkout "$1"
-npm install
-echo
-}
-
-function fix() {
-echo '\n- Fix NPM installation in the current folder.\n'
-sudo rm -rf node_modules
-rm package-lock.json
-git pull
-npm install
-echo
-}
 
 
 
