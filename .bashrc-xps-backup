@@ -108,7 +108,7 @@ alias i1="  echo;echo - Install Python.     ;echo;sudo yum install python2.10;ec
 
 
 
-#; Miscellaneous Aliases (!misc)
+#; Miscellaneous Aliases (!miali, !misc)
 
 alias c="clear"
 alias d="ls -aFl"
@@ -127,7 +127,7 @@ alias fe="/d/Dropbox/IT/composable-batch-files/fe.bat"
 alias ffd="   echo;echo - Find folder.                 ;echo;find . -type d -name;echo"
 alias hi="    echo;echo - Show commands history.       ;echo;history;echo"
 alias hw="/d/Dropbox/IT/function-first-bash-scripts/hw.sh"
-alias {hw1,hw2}="echo;echo - Hello world multiple alias sample. ;echo"
+alias {hw1,hw2}="echo;echo - Hello world. Multiple alias' sample. ;echo"
 alias j="     echo;echo - Make everything clean.       ;echo;h2;make everything-clear;echo" # (!j-bcn)
 alias m="/d/Dropbox/IT/composable-batch-files/m.bat"
 alias nm="/d/Dropbox/IT/function-first-bash-scripts/nm.sh"
@@ -147,6 +147,17 @@ alias z="     echo;echo - H2 then status.               ;echo;s h2" # !z-bcn
 
 
 #;+ Miscellaneous Functions (!fx, !func, !mfct, !mifct)
+
+#;; 
+function v {
+# (!v-bcn)
+if [ "$1" != "" ]; then
+  $1
+fi
+git reset --hard -q HEAD
+# I think this is the same as git restore.
+echo
+}
 
 #;; 
 function kj () {
@@ -181,8 +192,8 @@ echo
 }
 
 #;; 
-function f () {
-# !f-bcn
+function f {
+# (!f-bcn)
 if [ "$1" != "" ]; then
   $1
 fi
